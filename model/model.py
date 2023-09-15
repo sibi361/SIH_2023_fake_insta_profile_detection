@@ -12,27 +12,31 @@ from sklearn.preprocessing import StandardScaler
 
 
 def read_datasets():
-    """ Reads users profile from csv files """
+    """Reads users profile from csv files"""
     genuine_users = pd.read_csv("users.csv")
     fake_users = pd.read_csv("fusers.csv")
     # print genuine_users.columns
     # print genuine_users.describe()
     # print fake_users.describe()
     x = pd.concat([genuine_users, fake_users])
-    y = len(fake_users)*[0] + len(genuine_users)*[1]
+    y = len(fake_users) * [0] + len(genuine_users) * [1]
     return x, y
 
 
 def extract_features(x):
-    feature_columns_to_use = ['profile pic',
-                              'name==username',
-                              'description length',
-                              'external URL',
-                              'private',
-                              '#posts',
-                              '#followers', '#follows']
+    feature_columns_to_use = [
+        "profile pic",
+        "name==username",
+        "description length",
+        "external URL",
+        "private",
+        "#posts",
+        "#followers",
+        "#follows",
+    ]
     x = x.loc[:, feature_columns_to_use]
     return x
+
 
 # def plot_confusion_matrix(cm, title='Confusion matrix', cmap=plt.cm.Blues):
 #     target_names=['Fake','Genuine']
@@ -75,10 +79,9 @@ def setupModel():
 
     # print(x.columns)
     # print(x.describe())
-    X_train, X_test, y_train, y_test = train_test_split(x,
-                                                        y,
-                                                        test_size=0.20,
-                                                        random_state=44)
+    X_train, X_test, y_train, y_test = train_test_split(
+        x, y, test_size=0.20, random_state=44
+    )
 
     # print(X_train.iloc[10])
 
@@ -95,9 +98,16 @@ def setupModel():
 
 
 def predict(input):
-    column_names = ['profile pic',
-                    'name==username', 'description length', 'external URL',
-                    'private', '#posts', '#followers', '#follows']
+    column_names = [
+        "profile pic",
+        "name==username",
+        "description length",
+        "external URL",
+        "private",
+        "#posts",
+        "#followers",
+        "#follows",
+    ]
     # fake = [0, 0, 0, 0, 0, 0, 9, 0]
     # real = [1, 0, 0, 0, 1, 5, 866, 953]
 
