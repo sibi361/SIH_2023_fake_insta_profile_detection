@@ -26,19 +26,10 @@ app.mount("/", StaticFiles(directory="static", html=True), name="static")
 async def predict(request: Request):
     formData = await request.form()
     # formData = jsonable_encoder(formData)
-    print(formData)
-    print(formData.values())
-    return formData
+    # print(formData)
+    # print(list(formData.values()))
+    # return formData
 
-# output = say(model.predict([profile_pic,
-#                             name_same_username,
-#                             description_length,
-#                             external_url,
-#                             private,
-#                             posts,
-#                             followers,
-#                             following]))
-# print(output)
-# return {"result": output}
-
-# main site at /home
+    output = say(model.predict(list(formData.values())))
+    print(output)
+    return {"result": output}

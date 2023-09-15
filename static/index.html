@@ -37,46 +37,71 @@
             <div id="mode1">
                 <h2>Mode 1: Manually Enter Details</h2>
                 <form id="mode1-form" action="/api/v1/predict" method="POST">
-                    <!-- <label for="url">Profile URL:</label>
-                    <input type="text" id="url" name="url" required />
-
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required /> -->
-
-                    <label for="question1">Private account?</label
+                    <label>Private account? </label
+                    ><label for="question1_1">Yes</label
                     ><input
-                        type="checkbox"
-                        id="question1"
+                        type="radio"
+                        id="question1_1"
                         name="private"
                         value="1"
                         checked
+                    />&nbsp;&nbsp;<label for="question1_0">No</label
+                    ><input
+                        type="radio"
+                        id="question1_0"
+                        name="private"
+                        value="0"
+                        checked
                     /><br /><br />
 
-                    <label for="question2"
-                        >Does the description have any external URL?</label
+                    <label>External URL present? </label
+                    ><label for="question2_1">Yes</label
                     ><input
-                        type="checkbox"
-                        id="question2"
+                        type="radio"
+                        id="question2_1"
                         name="external_url"
                         value="1"
                         checked
-                    /><br /><br />
-
-                    <label for="question3">Profile picture is present: </label
+                    />&nbsp;&nbsp;<label for="question2_0">No</label
                     ><input
-                        type="checkbox"
-                        id="question3"
-                        name="profile_pic"
-                        value="1"
+                        type="radio"
+                        id="question2_0"
+                        name="external_url"
+                        value="0"
                         checked
                     /><br /><br />
 
-                    <label for="question4">Name is similar to username</label
+                    <label>Profile picture present? </label
+                    ><label for="question3_1">Yes</label
                     ><input
-                        type="checkbox"
-                        id="question4"
+                        type="radio"
+                        id="question3_1"
+                        name="profile_pic"
+                        value="1"
+                        checked
+                    />&nbsp;&nbsp;<label for="question3_0">No</label
+                    ><input
+                        type="radio"
+                        id="question3_0"
+                        name="profile_pic"
+                        value="0"
+                        checked
+                    /><br /><br />
+
+                    <label>Name similar to username? </label
+                    ><label for="question4_1">Yes</label
+                    ><input
+                        type="radio"
+                        id="question4_1"
                         name="name_same_username"
                         value="1"
+                        checked
+                    />&nbsp;&nbsp;<label for="question4_0">No</label
+                    ><input
+                        type="radio"
+                        id="question4_0"
+                        name="name_same_username"
+                        value="0"
                         checked
                     /><br /><br />
 
