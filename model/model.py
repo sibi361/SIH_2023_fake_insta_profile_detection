@@ -108,10 +108,6 @@ def predict(input):
         "#followers",
         "#follows",
     ]
-    # fake = [0, 0, 0, 0, 0, 0, 9, 0]
-    # real = [1, 0, 0, 0, 1, 5, 866, 953]
-
-    # input = fake
 
     X_test_custom = pd.DataFrame([input], columns=column_names)
     # print(X_test_custom)
@@ -120,7 +116,3 @@ def predict(input):
     y_pred_custom = trained_model.predict(X_test_custom)
     # print(y_pred_custom)
     return y_pred_custom[0]
-
-
-# setupModel()
-# print(predict())

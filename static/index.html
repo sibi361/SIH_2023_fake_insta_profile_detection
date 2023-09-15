@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Social Media Account Verification</title>
+        <title>Instagram Profile Classifier</title>
         <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     </head>
     <body>
@@ -26,7 +26,7 @@
         </script>
 
         <div class="container">
-            <h1>Social Media Account Verification</h1>
+            <h1>Instagram Profile Classifier</h1>
             <div id="modeBar">
                 <div class="modeButton selected" onclick="setMode(1)">
                     Mode 1
@@ -36,7 +36,7 @@
 
             <div id="mode1">
                 <h2>Mode 1: Manually Enter Details</h2>
-                <form id="mode1-form" action="/predict" method="POST">
+                <form id="mode1-form" action="/api/v1/predict" method="POST">
                     <!-- <label for="url">Profile URL:</label>
                     <input type="text" id="url" name="url" required />
 
@@ -122,9 +122,9 @@
             </div>
 
             <div id="mode2" style="display: none">
-                <h2>Mode 2: Enter Social Media Profile Link</h2>
+                <h2>Mode 2: Auto Scrape</h2>
                 <form id="mode2-form">
-                    <label for="profileLink">Profile Link:</label>
+                    <label for="profileLink">Instagram profile link:</label>
                     <input
                         type="text"
                         id="profileLink"
