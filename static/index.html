@@ -34,29 +34,57 @@
                 <div class="modeButton" onclick="setMode(2)">Mode 2</div>
             </div>
 
-            <div id="mode1" style="display: none">
+            <div id="mode1">
                 <h2>Mode 1: Manually Enter Details</h2>
-                <form id="mode1-form">
-                    <label for="url">Profile URL:</label>
+                <form id="mode1-form" action="/predict" method="POST">
+                    <!-- <label for="url">Profile URL:</label>
                     <input type="text" id="url" name="url" required />
 
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required />
+                    <input type="text" id="username" name="username" required /> -->
 
-                    <label for="desc_len">Description length:</label>
+                    <label for="question1">Private account?</label
+                    ><input
+                        type="checkbox"
+                        id="question1"
+                        name="private"
+                        value="1"
+                        checked
+                    /><br /><br />
+
+                    <label for="question2"
+                        >Does the description have any external URL?</label
+                    ><input
+                        type="checkbox"
+                        id="question2"
+                        name="external_url"
+                        value="1"
+                        checked
+                    /><br /><br />
+
+                    <label for="question3">Profile picture is present: </label
+                    ><input
+                        type="checkbox"
+                        id="question3"
+                        name="profile_pic"
+                        value="1"
+                        checked
+                    /><br /><br />
+
+                    <label for="question4">Name is similar to username</label
+                    ><input
+                        type="checkbox"
+                        id="question4"
+                        name="name_same_username"
+                        value="1"
+                        checked
+                    /><br /><br />
+
+                    <label for="description_length">Description length:</label>
                     <input
                         type="number"
-                        id="desc_len"
-                        name="desc_len"
-                        required
-                        min="0"
-                    />
-
-                    <label for="following">Following Count:</label>
-                    <input
-                        type="number"
-                        id="following"
-                        name="following"
+                        id="description_length"
+                        name="description_length"
                         required
                         min="0"
                     />
@@ -70,6 +98,15 @@
                         min="0"
                     />
 
+                    <label for="following">Following Count:</label>
+                    <input
+                        type="number"
+                        id="following"
+                        name="following"
+                        required
+                        min="0"
+                    />
+
                     <label for="posts">Post Count:</label>
                     <input
                         type="number"
@@ -79,33 +116,12 @@
                         min="0"
                     />
 
-                    <label>Additional Questions:</label><br />
-                    <input
-                        type="checkbox"
-                        id="question1"
-                        name="question1"
-                        value="yes"
-                    />
-                    <label for="question1"
-                        >Is the account in picture - Private?</label
-                    ><br />
-
-                    <input
-                        type="checkbox"
-                        id="question2"
-                        name="question2"
-                        value="yes"
-                    />
-                    <label for="question2"
-                        >Does the description have any external URL?</label
-                    ><br />
-
                     <br />
                     <button type="submit">Verify Account</button>
                 </form>
             </div>
 
-            <div id="mode2">
+            <div id="mode2" style="display: none">
                 <h2>Mode 2: Enter Social Media Profile Link</h2>
                 <form id="mode2-form">
                     <label for="profileLink">Profile Link:</label>

@@ -1,5 +1,7 @@
 from model.model import *
-import fastapi
+from typing import Annotated
+from fastapi import FastAPI, Form
+from fastapi.staticfiles import StaticFiles
 
 
 def say(output):
@@ -19,16 +21,27 @@ setupModel()
 # output = predict(real)
 # say(output)
 
-app = fastapi.FastAPI()
+app = FastAPI()
+app.mount("/home", StaticFiles(directory="static", html=True), name="static")
 
 
 @app.post("/predict")
-def pred(profile_pic, name_same_username, description_length,
-         external_url, private, posts, followers, follows):
-    output = say(predict([1]))
+def pred(profile_pic: Annotated[str, Form()],
+         name_same_username: Annotated[str, Form()],
+         description_length: Annotated[str, Form()],
+         external_url: Annotated[str, Form()],
+         private: Annotated[str, Form()],
+         posts: Annotated[str, Form()],
+         followers: Annotated[str, Form()],
+         following: Annotated[str, Form()]):
+    output = say(predict([profile_pic,
+                          name_same_username,
+                          description_length,
+                          external_url,
+                          private,
+                          posts,
+                          followers,
+                          following]))
     return {"result": output}
 
-
-@app.get("/")
-def showHome():
-    
+# main site at /home
