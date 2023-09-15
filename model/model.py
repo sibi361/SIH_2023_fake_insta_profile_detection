@@ -94,14 +94,14 @@ def setupModel():
     # print('Classification Accuracy on Test dataset: ' ,sklearn.metrics.accuracy_score(y_test, y_pred))
 
 
-def predict():
+def predict(input):
     column_names = ['profile pic',
                     'name==username', 'description length', 'external URL',
                     'private', '#posts', '#followers', '#follows']
-    fake = [0, 0, 0, 0, 0, 0, 9, 0]
-    real = [1, 0, 0, 0, 1, 5, 866, 953]
+    # fake = [0, 0, 0, 0, 0, 0, 9, 0]
+    # real = [1, 0, 0, 0, 1, 5, 866, 953]
 
-    input = fake
+    # input = fake
 
     X_test_custom = pd.DataFrame([input], columns=column_names)
     # print(X_test_custom)
@@ -112,5 +112,5 @@ def predict():
     return y_pred_custom[0]
 
 
-setupModel()
-print(predict())
+# setupModel()
+# print(predict())

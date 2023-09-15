@@ -1,4 +1,4 @@
-from oldModel.model import *
+from model.model import *
 import fastapi
 
 
@@ -10,8 +10,8 @@ def say(output):
 
 
 setupModel()
-# fake = ["9876543", 0, 9, 0, 1, 0, 0]
-# real = ["2312313", 2, 866, 953, 1, 282, 5]
+# fake = [0, 0, 0, 0, 0, 0, 9, 0]
+# real = [1, 0, 0, 0, 1, 5, 866, 953]
 
 # output = predict(fake)
 # say(output)
@@ -21,6 +21,14 @@ setupModel()
 
 app = fastapi.FastAPI()
 
+
+@app.post("/predict")
+def pred(profile_pic, name_same_username, description_length,
+         external_url, private, posts, followers, follows):
+    output = say(predict([1]))
+    return {"result": output}
+
+
 @app.get("/")
-def pred(statuses_count,followers_count,friends_count,favourites_count):
+def showHome():
     
