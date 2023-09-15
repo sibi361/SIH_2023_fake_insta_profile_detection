@@ -4,3 +4,14 @@ PS1364 Fake Social Media Profile detection and reporting
 
 ## Flowchart
 ![flowchart](/images/flowchart.png)
+
+## Dataset
+`fusers.csv`: fake users
+`fusers.csv`: real users
+
+## Usage
+
+```uvicorn run api:app --reload```
+
+Frontend will be available at `http://127.0.0.1:8000/`
+API will be available at `http://127.0.0.1:8000/api/v1/predict`

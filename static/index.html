@@ -2,29 +2,10 @@
 <html>
     <head>
         <title>Instagram Profile Classifier</title>
-        <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <script defer src="scripts.js"></script>
     </head>
     <body>
-        <script>
-            function setMode(mode) {
-                var mode1 = document.getElementById("mode1");
-                var mode2 = document.getElementById("mode2");
-                var modeButtons = document.querySelectorAll(".modeButton");
-
-                if (mode === 1) {
-                    mode1.style.display = "block";
-                    mode2.style.display = "none";
-                    modeButtons[0].classList.add("selected");
-                    modeButtons[1].classList.remove("selected");
-                } else {
-                    mode1.style.display = "none";
-                    mode2.style.display = "block";
-                    modeButtons[0].classList.remove("selected");
-                    modeButtons[1].classList.add("selected");
-                }
-            }
-        </script>
-
         <div class="container">
             <h1>Instagram Profile Classifier</h1>
             <div id="modeBar">
@@ -36,7 +17,7 @@
 
             <div id="mode1">
                 <h2>Mode 1: Manually Enter Details</h2>
-                <form id="mode1-form" action="/api/v1/predict" method="POST">
+                <form id="mode1-form" action="#">
                     <label>Private account? </label
                     ><label for="question1_1">Yes</label
                     ><input
@@ -44,14 +25,13 @@
                         id="question1_1"
                         name="private"
                         value="1"
-                        checked
                     />&nbsp;&nbsp;<label for="question1_0">No</label
                     ><input
                         type="radio"
                         id="question1_0"
                         name="private"
                         value="0"
-                        checked
+                        checked="checked"
                     /><br /><br />
 
                     <label>External URL present? </label
@@ -61,14 +41,13 @@
                         id="question2_1"
                         name="external_url"
                         value="1"
-                        checked
                     />&nbsp;&nbsp;<label for="question2_0">No</label
                     ><input
                         type="radio"
                         id="question2_0"
                         name="external_url"
                         value="0"
-                        checked
+                        checked="checked"
                     /><br /><br />
 
                     <label>Profile picture present? </label
@@ -78,14 +57,13 @@
                         id="question3_1"
                         name="profile_pic"
                         value="1"
-                        checked
                     />&nbsp;&nbsp;<label for="question3_0">No</label
                     ><input
                         type="radio"
                         id="question3_0"
                         name="profile_pic"
                         value="0"
-                        checked
+                        checked="checked"
                     /><br /><br />
 
                     <label>Name similar to username? </label
@@ -95,14 +73,13 @@
                         id="question4_1"
                         name="name_same_username"
                         value="1"
-                        checked
                     />&nbsp;&nbsp;<label for="question4_0">No</label
                     ><input
                         type="radio"
                         id="question4_0"
                         name="name_same_username"
                         value="0"
-                        checked
+                        checked="checked"
                     /><br /><br />
 
                     <label for="description_length">Description length:</label>
@@ -114,7 +91,7 @@
                         min="0"
                     />
 
-                    <label for="followers">Follower Count:</label>
+                    <label for="followers">Followers Count:</label>
                     <input
                         type="number"
                         id="followers"
@@ -142,11 +119,14 @@
                     />
 
                     <br />
-                    <button type="submit">Verify Account</button>
+                    <div class="flex-space">
+                        <button type="submit">Verify Account</button>
+                        <span id="result"></span>
+                    </div>
                 </form>
             </div>
 
-            <div id="mode2" style="display: none">
+            <div id="mode2" class="hidden">
                 <h2>Mode 2: Auto Scrape</h2>
                 <form id="mode2-form">
                     <label for="profileLink">Instagram profile link:</label>
