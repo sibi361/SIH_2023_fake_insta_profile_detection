@@ -10,7 +10,7 @@ PS1364 Fake Social Media Profile detection and reporting
 
 `fusers.csv`: fake users
 
-`fusers.csv`: real users
+`users.csv`: real users
 
 ## Usage
 
